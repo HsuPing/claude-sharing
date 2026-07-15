@@ -698,7 +698,7 @@ ul.pts li .sub{display:block;font-size:1.42cqw;color:var(--muted);margin-top:.4c
   var cur = document.getElementById('cur');
   document.getElementById('total').textContent = total;
 
-  // ---- Page 09 background music (index 8): play 3s after arriving, stop on leave ----
+  // ---- Page 09 background music (index 8): play 1s after arriving, stop on leave ----
   var pageMusic = document.getElementById('pageMusic');
   var musicTimer = null;
   var MUSIC_SLIDE = 8; // Page 09 (0-based)
@@ -710,7 +710,7 @@ ul.pts li .sub{display:block;font-size:1.42cqw;color:var(--muted);margin-top:.4c
         if(i === MUSIC_SLIDE){
           try{ pageMusic.currentTime = 0; var pr = pageMusic.play(); if(pr && pr.catch){ pr.catch(function(){}); } }catch(e){}
         }
-      }, 3000);
+      }, 1000);
     } else {
       pageMusic.pause();
       try{ pageMusic.currentTime = 0; }catch(e){}
