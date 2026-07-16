@@ -759,16 +759,17 @@ ul.pts li .sub{display:block;font-size:1.42cqw;color:var(--muted);margin-top:.4c
   var cur = document.getElementById('cur');
   document.getElementById('total').textContent = total;
 
-  // ---- Page 09 background music (index 8): play 1s after arriving, stop on leave ----
+  // ---- Page music (index 8 = Page 09, index 17 = Page 18 Q&A): play 1s after arriving, stop on leave ----
   var pageMusic = document.getElementById('pageMusic');
   var musicTimer = null;
-  var MUSIC_SLIDE = 8; // Page 09 (0-based)
+  var MUSIC_SLIDES = [8, 17]; // Page 09 and Page 18 (Q&A), 0-based
+  function isMusicSlide(){ return MUSIC_SLIDES.indexOf(i) !== -1; }
   function handlePageMusic(){
     if(!pageMusic) return;
     clearTimeout(musicTimer);
-    if(i === MUSIC_SLIDE){
+    if(isMusicSlide()){
       musicTimer = setTimeout(function(){
-        if(i === MUSIC_SLIDE){
+        if(isMusicSlide()){
           try{ pageMusic.currentTime = 0; var pr = pageMusic.play(); if(pr && pr.catch){ pr.catch(function(){}); } }catch(e){}
         }
       }, 1000);
